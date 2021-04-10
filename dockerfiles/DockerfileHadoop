@@ -1,0 +1,6 @@
+FROM apache/hadoop:3
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN export DISPLAY=:0
+RUN sudo yum install -y xterm.x86_64
+CMD ["python", "listener.py", "8400"]

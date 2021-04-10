@@ -1,0 +1,7 @@
+FROM camper484/autvarunorange
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN export DISPLAY=:0
+CMD ["python", "listener.py", "8300"]
+
+CMD ["python", "listener.py", "8400"]

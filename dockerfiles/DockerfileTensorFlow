@@ -1,0 +1,6 @@
+FROM tensorflow/tensorflow:latest
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN apt install -y xterm
+RUN export DISPLAY=:0
+CMD ["python", "listener.py", "8600"]

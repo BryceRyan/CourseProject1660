@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y firefox && apt-get install -y python
+RUN export PATH="$PATH:/usr/local/bin/python"
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN export DISPLAY=:0
+CMD ["python", "listener.py", "8700"]

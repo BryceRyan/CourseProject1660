@@ -1,0 +1,121 @@
+version: "3.8"
+
+services:
+    rstudio:
+        image: "rocker/rstudio"
+        ports: 
+            - "8787:8787"
+        environment:
+            - "PASSWORD=pass"
+        logging:
+            driver: "none"
+    spyder:
+        image: "bar68/spydertest:1.2"
+        ports:
+            - "8090:8090"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    sas:
+        image: "bjbsas/sa4c:latest"
+        ports:
+            - "38080:38080"
+        logging:
+            driver: "none"
+    git:
+        image: "bar68/gittest:1.2"
+        ports:
+            - "8100:8100"
+        environment:
+                - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    jupyter:
+        image: "jupyter/datascience-notebook"
+        ports: 
+            - "8888:8888"
+        command: [start.sh, jupyter, notebook, --NotebookApp.token='']
+        logging:
+            driver: "none"
+    orange:
+        image: "bar68/orangetest:1.0"
+        ports:
+            - "8300:8300"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    vscode:
+        image: "jmcdice/vscode-server:latest"
+        ports:
+            - "9000:9000"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    hadoop:
+        image: "bar68/hadooptest:1.2"
+        ports:
+            - "8400:8400"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    spark:
+        image: "bar68/sparktest:1.1"
+        ports:
+            - "8500:8500"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    tableau:
+        image: "bar68/tableautest:1.2"
+        ports:
+            - "8850:8850"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    sonar:
+        image: "bar68/sonartest:1.0"
+        ports:
+            - "8700:8700"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    tensorflow:
+        image: "bar68/tftest:1.1"
+        ports:
+            - "8600:8600"
+        environment:
+            - "DISPLAY=${DISPLAY}"
+        logging:
+            driver: "none"
+    markdown:
+        image: "v4tech/markdown-editor:latest"
+        ports:
+            - "12345:80"
+        logging:
+            driver: "none"
+    app:
+        build:
+            context: .
+        depends_on:
+            - "markdown"
+            - "tensorflow"
+            - "sonar"
+            - "tableau"
+            - "spark"
+            - "hadoop"
+            - "vscode"
+            - "orange"
+            - "jupyter"
+            - "git"
+            - "sas"
+            - "spyder"
+            - "rstudio"
+        environment:
+            - "DISPLAY=${DISPLAY}"

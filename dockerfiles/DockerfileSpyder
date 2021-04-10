@@ -1,0 +1,5 @@
+FROM camper484/autvarunspyderimg
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN export DISPLAY=:0
+CMD ["python", "listener.py", "8090"]
