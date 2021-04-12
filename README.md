@@ -8,7 +8,7 @@ DISPLAY=(IP HERE):0.0
   
 Replace the (IP HERE) with the IP of your X Server.
   
-After that, just run docker-compose up.
+After that, just run docker-compose build and docker-compose up.
 
 
 Code Walkthrough Link: https://drive.google.com/file/d/1wCXRexGJSLDYi0t7h8FhkOSgfOxkIRZm/view?usp=sharing
