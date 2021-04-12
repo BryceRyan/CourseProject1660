@@ -10,6 +10,7 @@ Replace the (IP HERE) with the IP of your X Server.
   
 After that, just run docker-compose build and docker-compose up.
 
+As a disclaimer it takes a long time (~10 minutes on my machine) to build because it has to download both firefox and openjdk.
 
 Code Walkthrough Link: https://drive.google.com/file/d/1wCXRexGJSLDYi0t7h8FhkOSgfOxkIRZm/view?usp=sharing
 
