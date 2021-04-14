@@ -1,6 +1,7 @@
 # CourseProject1660
 
 There are two steps needed before you run this.  First, make sure that you have some sort of X Server up.  I used XLaunch.
+(I only tested this on Windows)
 
 Next, you must edit the .env file.
 
